@@ -41,14 +41,14 @@ class MachineController extends AbstractController
     }
     
     /**
-     * @Route("/edit/{id}" name="machine_edit")
+     * @Route("/edit/{id}", name="machine_edit")
      */
     public function edit(Request $request)
     {
         
     }
     /**
-     * @Route("/delete/{id}" name="machine_delete")
+     * @Route("/delete/{id}", name="machine_delete")
      */
     public function delelte(Request $request)
     {
