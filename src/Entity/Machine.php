@@ -105,10 +105,6 @@ class Machine
         $this->price = $price;
     }
 
-    function setImages($images): void {
-        $this->images = $images;
-    }
-
 
     
     
