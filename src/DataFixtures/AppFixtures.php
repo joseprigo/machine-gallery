@@ -6,7 +6,7 @@ use App\Entity\Image;
 use App\Entity\Machine;
 //use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
@@ -15,11 +15,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class AppFixtures extends Fixture
 {
-    private const USER = [
-        'username' => 'josep_rigo',
-        'password' => 'josep123',
-        'roles' => [User::ROLE_ADMIN],
-        ];
+//    private const USER = [
+//        'username' => 'josep_rigo',
+//        'password' => 'josep123',
+//        'roles' => [User::ROLE_ADMIN],
+//        ];
 
     private const MACHINES = [
         [
@@ -78,23 +78,23 @@ class AppFixtures extends Fixture
         ],
         
         [
-            "uuid" => "072823c0-b042-4ccf-9162-43114d802b76",
+            "uuid" => "072823c0-b042-4ccf-9162-43114d802b78",
             "type" => "thumbnail",
             "url"  => "https://upload.wikimedia.org/wikipedia/commons/8/8a/Tortilla_machine.jpg",
         ],
         [
-            "uuid" => "93ca343f-01bc-4dad-9410-c495ae2c1e59",
+            "uuid" => "93ca343f-01bc-4dad-9410-c495ae2c1e5b",
             "type" => "front_view",
             "url"  => "https://upload.wikimedia.org/wikipedia/commons/1/1b/Tree_drilling_machine.jpg",
         ],
         
         [
-            "uuid" => "072823c0-b042-4ccf-9162-43114d802b76",
+            "uuid" => "072823c0-b042-4ccf-9162-43114d802b79",
             "type" => "thumbnail",
             "url"  => "https://upload.wikimedia.org/wikipedia/commons/d/db/EB1911_Weighing_Machines_-_Inverted_counter_machine.jpg",
         ],
         [
-            "uuid" => "93ca343f-01bc-4dad-9410-c495ae2c1e59",
+            "uuid" => "93ca343f-01bc-4dad-9410-c495ae2c1e5c",
             "type" => "lateral_view",
             "url"  => "https://upload.wikimedia.org/wikipedia/commons/f/f8/Delorean_Time_Machine_Replica.jpg",
         ],
@@ -109,6 +109,7 @@ class AppFixtures extends Fixture
     {
         $this->passwordEncoder = $passwordEncoder;
     }
+    
     public function load(ObjectManager $manager)
     {
         //$this->loadUser($manager);
@@ -122,10 +123,15 @@ class AppFixtures extends Fixture
         foreach(self::MACHINES as $machineData)
         {
             $machine = new Machine();
+            $machine->setUuid($machineData['uuid']);
             $machine->setBrand($machineData['brand']);
             $machine->setManufacturer($machineData['manufacturer']);
             $machine->setModel($machineData['model']);
             $machine->setPrice($machineData['price']);
+            
+            $this->addReference($machineData['uuid'],
+                    $machine);
+            
             $manager->persist($machine);
         }
         $manager->flush();
@@ -136,9 +142,10 @@ class AppFixtures extends Fixture
         foreach(self::IMAGES as $index=>$imageData)
         {
             $image = new Image();
+            $image->setUuid($imageData['uuid']);
             $image->setType($imageData['type']);
             $image->setUrl($imageData['url']);
-            $image->setMachine($this->getReference(self::USERS[intdiv($index,2)]['uuid']));
+            $image->setMachine($this->getReference(self::MACHINES[intdiv($index,2)]['uuid']));
             $manager->persist($image);
         }
         $manager->flush();

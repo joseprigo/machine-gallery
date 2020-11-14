@@ -79,6 +79,12 @@ class Image
     function setMachine($machine): void {
         $this->machine = $machine;
     }
+    
+    function setUuid($uuid): void {
+        $this->uuid = $uuid;
+    }
+
+
 
 
     

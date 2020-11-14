@@ -21,6 +21,7 @@ class Machine
     
      /**
      * @ORM\Column(type="uuid", unique=true)
+     * @Assert\NotBlank()
      */
     protected $uuid;
 
@@ -104,6 +105,12 @@ class Machine
     function setPrice(float $price): void {
         $this->price = $price;
     }
+    
+    function setUuid($uuid): void {
+        $this->uuid = $uuid;
+    }
+
+
 
 
     
