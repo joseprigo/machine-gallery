@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Entity\Image;
 use App\Entity\Machine;
+use App\Service\SerializerFactory;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Ramsey\Uuid\Uuid;

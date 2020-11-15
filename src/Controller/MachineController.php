@@ -23,7 +23,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Description of MachineController
  *
  * @author josep
- * @Route("machine")
+ * @Route("/machine")
  */
 class MachineController extends AbstractController
 {

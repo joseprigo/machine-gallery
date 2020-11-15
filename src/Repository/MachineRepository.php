@@ -21,9 +21,26 @@ class MachineRepository extends ServiceEntityRepository
         parent::__construct($registry, Machine::class);
     }
     
-    public function findAllArray()
+    public function existingBrands()
+    {
+        return $this->distinctColumn('m.brand');
+    }
+    
+    public function existingManufacturers()
+    {
+        return $this->distinctColumn('m.manufacturer');
+    }
+    
+    public function existingModels()
+    {
+        return $this->distinctColumn('m.model');
+    }
+    
+    protected function distinctColumn($field)
     {
         return $this->createQueryBuilder('m')
+                ->select($field)
+                ->distinct()
                 ->getQuery()
                 ->getArrayResult();
     }
