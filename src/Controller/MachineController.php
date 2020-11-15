@@ -15,11 +15,14 @@ use Symfony\Component\HttpFoundation\Request;
  * Description of MachineController
  *
  * @author josep
- * @Route("Machine")
+ * @Route("machine")
  */
 class MachineController extends AbstractController
 {
-    public function machines()
+    /**
+     * @Route("/list", name="machine_list")
+     */
+    public function List()
     {
         
     }
