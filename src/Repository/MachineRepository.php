@@ -20,6 +20,13 @@ class MachineRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Machine::class);
     }
+    
+    public function findAllArray()
+    {
+        return $this->createQueryBuilder('m')
+                ->getQuery()
+                ->getArrayResult();
+    }
 
     // /**
     //  * @return Machine[] Returns an array of Machine objects

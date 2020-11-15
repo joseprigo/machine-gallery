@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec5230f882973aaff98ce93656a107cf",
+    "content-hash": "074cbff0be21a46d3841f0d78f5c931b",
     "packages": [
         {
             "name": "brick/math",
@@ -1446,6 +1446,61 @@
                 "validator"
             ],
             "time": "2020-10-31T20:37:35+00:00"
+        },
+        {
+            "name": "gamez/ramsey-uuid-normalizer",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeromegamez/ramsey-uuid-normalizer.git",
+                "reference": "de8a2dacb44226a1506058bfa4665d946f884206"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeromegamez/ramsey-uuid-normalizer/zipball/de8a2dacb44226a1506058bfa4665d946f884206",
+                "reference": "de8a2dacb44226a1506058bfa4665d946f884206",
+                "shasum": ""
+            },
+            "require": {
+                "ramsey/uuid": "^3.0|^4.0",
+                "symfony/serializer": "^3.4|^4.3|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5.1",
+                "symfony/property-access": "^3.4|^4.3|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gamez\\Symfony\\Component\\Serializer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jérôme Gamez",
+                    "email": "jerome@gamez.name"
+                }
+            ],
+            "description": "Symfony Normalizer and Denormalizer for ramsey/uuid",
+            "homepage": "https://github.com/jeromegamez/ramsey-uuid-normalizer",
+            "keywords": [
+                "normalizer",
+                "ramsey",
+                "serializer",
+                "symfony",
+                "uuid"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/jeromegamez",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-04-05T11:40:09+00:00"
         },
         {
             "name": "monolog/monolog",
