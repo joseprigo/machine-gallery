@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Switch,Redirect, Link, withRouter} from 'react-router-dom';
 import Machines from './Machines';
-    
+import Login from './Login';
+
 class Home extends Component {
     
     render() {
@@ -16,7 +17,7 @@ class Home extends Component {
                            </li>
     
                            <li className="nav-item">
-                               
+                               <Link className={"nav-link"} to={"/login"}> Login</Link>
                            </li>
                        </ul>
                    </div>
@@ -24,6 +25,7 @@ class Home extends Component {
                <Switch>
                    <Redirect exact from="/" to="/machines" />
                    <Route path="/machines" component={Machines} />
+                   <Route path="/login" component={Login} />
                </Switch>
            </div>
         )

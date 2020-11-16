@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Description of SecurityController
  *
  * @author josep
+ * @Route("/security")
  */
 class SecurityController extends AbstractController{
     

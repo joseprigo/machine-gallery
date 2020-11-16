@@ -15,7 +15,7 @@ security:
             
             form_login:
                 check_path: security_login
-                csrf_token_generator: security.csrf.token_manager
+                #csrf_token_generator: security.csrf.token_manager
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

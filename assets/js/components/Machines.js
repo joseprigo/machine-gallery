@@ -110,7 +110,7 @@ class Machines extends Component {
                                                 <div className="media">
                                                    
                                                     <div className="media-body">
-                                                        <h4>Model: {machine.model}</h4>
+                                                        <h4>{machine.model}</h4>
                                                         <p> Brand: {machine.brand}</p>
                                                         <p> Manufacturer: {machine.manufacturer}</p>
                                                         <p> {machine.price} €</p>
