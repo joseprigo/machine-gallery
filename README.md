@@ -5,7 +5,7 @@ During the development, the app has been running  on a Homestead Vagrant box, bu
 
 ![alt text](https://github.com/joseprigo/machine-gallery/blob/master/blob/overview.png?raw=true)
 
-Backend
+# Backend
 
 This project tries to take advantage of symfony dependency injection of services and the default components of the framework as much as possible.
 
@@ -40,7 +40,14 @@ there are some unittests asserting the response from calling certain routes.
 Config
 The configuration  files are pretty much the default ones. I edited some parts of the security.yml files but I’m not sure they are that useful when working with a separate front-end logic.
 
-Frontend
+Fixtures 
+
+If you want to try this project don't forget to run the fixtures to fill some mock data into the databse.
+
+php bin/console doctrine:fixtures:load
+
+
+# Frontend
 
 The front-end reads the list of machines and shows them as a table.
 The design has been done with a modified bootstrap template.
@@ -57,7 +64,7 @@ I created an additional compoent with a login but the connection between the fro
 
 ![alt text](https://github.com/joseprigo/machine-gallery/blob/master/blob/login.png?raw=true)
 
-Extra points
+# Extra points
 
 filters: there are filters on the top of the table, allowing the user to filter by a text (can be a brand, manufacturer or model) and a price range.
 Containers: I used vagrant during the development. I have a homestead machine with all my symfony projects running in my computer.
