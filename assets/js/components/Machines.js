@@ -5,7 +5,8 @@ import axios from 'axios';
 class Machines extends Component {
     constructor() {
         super();
-        this.state = { machines: [], loading: true, search: ''};
+        this.max = 3000;
+        this.state = { machines: [], loading: true, search: '', min:0, max: this.max};
     }
     
     componentDidMount() {
@@ -21,6 +22,14 @@ class Machines extends Component {
         this.setState({search:event.target.value});
         
     }
+    updateMax(event) {
+        if(event.target.value == '' || event.target.value<= 0) event.target.value = this.max;
+        this.setState({max:event.target.value});
+    }
+    updateMin(event) {
+        if(event.target.value > this.state.max) event.target.value = this.state.max;
+        this.setState({min:event.target.value});
+    }
     
     render() {
         const loading = this.state.loading;
@@ -29,8 +38,10 @@ class Machines extends Component {
                 return machine.model.indexOf(this.state.search) !== -1 ||
                 machine.brand.indexOf(this.state.search) !== -1 ||
                 machine.manufacturer.indexOf(this.state.search) !== -1;
-            }  
-                );
+            }).filter(
+            (machine) => {
+                return machine.price <= this.state.max && machine.price >= this.state.min;
+            });
         return(
             <div>
                 <section className="row-section">
@@ -55,7 +66,36 @@ class Machines extends Component {
                                     <i className="fa fa-search"></i>
                                  </div>
                             
+                        </div>
+                        <div className="row">
+                        <div className="col-md-1">
+                            min
+                        </div>
+                        <div className="col-md-2 ">
+                            <div className="form-group">
+                                <input type="number" 
+                                value={this.state.min}
+                            onChange={this.updateMin.bind(this)}
+                                className="form-control"
+                                />
                             </div>
+                        </div>
+                         <div className="col-md-1">
+                            max
+                        </div>
+                        <div className="col-md-2">
+                            <div className="form-group">
+                                <input type="number" 
+                                value={this.state.max}
+                            onChange={this.updateMax.bind(this)}
+                                className="form-control"
+                                />
+                            </div>
+                        </div>
+                        <div className="col-md-2">
+                            €
+                        </div>
+                        </div>
                         {loading ? (
                             <div className={'row text-center'}>
                                 <span className="fa fa-spin fa-spinner fa-4x"></span>
