@@ -18,6 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Description of ImageController
@@ -47,6 +48,7 @@ class ImageController extends AbstractController
     }
     /**
      * @Route("/add/{uuid}", name="image_add", methods={"POST"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function add(Machine $machine, Request $request)
     {
@@ -66,6 +68,7 @@ class ImageController extends AbstractController
     
     /**
      * @Route("/edit/{uuid}", name="image_edit", methods={"PUT"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function edit(Image $image, Request $request)
     {
@@ -81,6 +84,7 @@ class ImageController extends AbstractController
     }
     /**
      * @Route("/delete/{uuid}", name="image_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function delete(Image $image)
     {

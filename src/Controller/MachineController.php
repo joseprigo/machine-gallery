@@ -18,6 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Description of MachineController
@@ -87,6 +88,7 @@ class MachineController extends AbstractController
     
     /**
      * @Route("/add", name="machine_add", methods={"POST"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function add(Request $request)
     {
@@ -105,6 +107,7 @@ class MachineController extends AbstractController
     
     /**
      * @Route("/edit/{uuid}", name="machine_edit", methods={"PUT"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function edit(Machine $machine, Request $request)
     {
@@ -120,6 +123,7 @@ class MachineController extends AbstractController
     }
     /**
      * @Route("/delete/{uuid}", name="machine_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_USER')")
      */
     public function delete(Machine $machine)
     {

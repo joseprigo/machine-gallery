@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Image;
 use App\Entity\Machine;
-//use App\Entity\User;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -15,11 +15,13 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class AppFixtures extends Fixture
 {
-//    private const USER = [
-//        'username' => 'josep_rigo',
-//        'password' => 'josep123',
-//        'roles' => [User::ROLE_ADMIN],
-//        ];
+    private const USER = [
+        'username' => 'josep_rigo',
+        'fullname' => 'Josep Rigo',
+        'email'    => 'josep@rigo.com',
+        'password' => 'josep123',
+        'roles' => [User::ROLE_USER],
+        ];
 
     private const MACHINES = [
         [
@@ -112,7 +114,7 @@ class AppFixtures extends Fixture
     
     public function load(ObjectManager $manager)
     {
-        //$this->loadUser($manager);
+        $this->loadUser($manager);
         $this->loadMachines($manager);
         $this->loadImages($manager);
         
@@ -150,32 +152,27 @@ class AppFixtures extends Fixture
         }
         $manager->flush();
     }
-//    private function loadUser(ObjectManager $manager){
-//        
-//        $userData = self::USER;
-//        $user = new User();
-//        $user->setUsername($userData['username']);
-//
-//        $user->setPassword(
-//                $this->passwordEncoder->encodePassword(
-//                        $user,
-//                        $userData['password']
-//                        )
-//                );
-//        $user->setRoles($userData['roles']);
-//        $user->setEnabled(true);
-//        $this->addReference($userData['username'],
-//                $user);
-//
-//
-//        $user->setPreferences($preferences);
-//
-//        $manager->persist($user);
-//        
-//        
-//        
-//
-//        
-//        $manager->flush();
-//    }
+    private function loadUser(ObjectManager $manager){
+        
+        $userData = self::USER;
+        $user = new User();
+        $user->setUsername($userData['username']);
+        $user->setEmail($userData['email']);
+        $user->setFullName($userData['fullname']);
+        $user->setPassword(
+                $this->passwordEncoder->encodePassword(
+                        $user,
+                        $userData['password']
+                        )
+                );
+        $user->setRoles($userData['roles']);
+
+        $manager->persist($user);
+        
+        
+        
+
+        
+        $manager->flush();
+    }
 }
