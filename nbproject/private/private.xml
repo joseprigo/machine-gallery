@@ -3,15 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/josep/machine-gallery/src/Entity/Machine.php</file>
-            <file>file:/home/josep/machine-gallery/src/Kernel.php</file>
-            <file>file:/home/josep/machine-gallery/src/Controller/MachineController.php</file>
-            <file>file:/home/josep/machine-gallery/.env</file>
-            <file>file:/home/josep/machine-gallery/config/packages/doctrine.yaml</file>
+            <file>file:/home/josep/machine-gallery/assets/js/app.js</file>
+            <file>file:/home/josep/machine-gallery/assets/js/components/Images.js</file>
+            <file>file:/home/josep/machine-gallery/assets/js/components/Machines.js</file>
+            <file>file:/home/josep/machine-gallery/src/Repository/MachineRepository.php</file>
+            <file>file:/home/josep/machine-gallery/tests/Controller/MachineBitsControllerTest.php</file>
+            <file>file:/home/josep/machine-gallery/webpack.config.js</file>
+            <file>file:/home/josep/machine-gallery/src/Service/SerializerFactory.php</file>
+            <file>file:/home/josep/machine-gallery/src/Controller/ImageController.php</file>
             <file>file:/home/josep/machine-gallery/src/Controller/PageController.php</file>
             <file>file:/home/josep/machine-gallery/templates/base.html.twig</file>
-            <file>file:/home/josep/machine-gallery/src/Entity/Image.php</file>
-            <file>file:/home/josep/machine-gallery/src/DataFixtures/AppFixtures.php</file>
+            <file>file:/home/josep/machine-gallery/tests/Service/SerializerFactoryTest.php</file>
+            <file>file:/home/josep/machine-gallery/templates/default/index.html.twig</file>
+            <file>file:/home/josep/machine-gallery/assets/styles/css/app.css</file>
+            <file>file:/home/josep/machine-gallery/src/Controller/MachineBitsController.php</file>
+            <file>file:/home/josep/machine-gallery/src/Repository/ImageRepository.php</file>
+            <file>file:/home/josep/machine-gallery/assets/js/components/Home.js</file>
         </group>
     </open-files>
 </project-private>
